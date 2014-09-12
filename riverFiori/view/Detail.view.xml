@@ -1,0 +1,63 @@
+<sap.ui.core.mvc:View controllerName="sapFioriApp.view.Detail"
+    xmlns="sap.m"
+    xmlns:sap.ui.core="sap.ui.core" xmlns:sap.ui.core.mvc="sap.ui.core.mvc"
+    xmlns:sap.ui.layout.form="sap.ui.layout.form" >
+    <Page navButtonPress="handleNavButtonPress" title="{i18n>DETAIL_TITLE}" showNavButton="{device>/isPhone}">
+        <content>
+            <ObjectHeader id="header" title="{SalesOrderNumber}" number="{TotalAmount}" numberUnit="{Currency}" introActive="false" titleActive="false" iconActive="false">
+                <customData>
+                    <sap.ui.core:CustomData key="sapDtResourcePath" value="SalesOrders"></sap.ui.core:CustomData>
+                </customData>
+                <attributes>
+                    <ObjectAttribute text="{i18n>DETAIL_TEXT}" active="false"></ObjectAttribute>
+                </attributes>
+            </ObjectHeader>
+            <IconTabBar expanded="{device>/isNoPhone}" selectedKey="customer">
+                <customData>
+                    <sap.ui.core:CustomData key="sapDtResourcePath" value="SalesOrders"></sap.ui.core:CustomData>
+                </customData>
+                <items>
+                    <IconTabFilter id="iconTabFilter" icon="sap-icon://hint">
+                        <content>
+                            <sap.ui.layout.form:SimpleForm minWidth="1024" editable="false" layout="ResponsiveGridLayout">
+                                <sap.ui.layout.form:content>
+                                    <sap.ui.core:Title text="More Details"></sap.ui.core:Title>
+                                    <Label id="label1" text="CustomerID"></Label>
+                                    <Text id="text1" text="{CustomerID}" maxLines="0"></Text>
+                                    <Label id="label2" text="CustomerName"></Label>
+                                    <Text id="text2" text="{CustomerName}" maxLines="0"></Text>
+                                    <Label id="label3" text="OrderDate"></Label>
+                                    <Text id="text3" text="{OrderDate}" maxLines="0"></Text>
+                                </sap.ui.layout.form:content>
+                            </sap.ui.layout.form:SimpleForm>
+                        </content>
+                    </IconTabFilter>
+                    <IconTabFilter id="filter1" text="Customer" key="customer" icon="sap-icon://customer" iconColor="Critical">
+                        <content>
+                            <sap.ui.layout.form:SimpleForm id="form0" editable="false" layout="ResponsiveGridLayout">
+                                <sap.ui.layout.form:content>
+                                    <sap.ui.core:Title text="Customer Details"></sap.ui.core:Title>
+                                    <Label text="Sales Organization"></Label>
+                                    <Input value="{SalesOrganization}" width="100%">
+                                        <customData>
+                                            <sap.ui.core:CustomData key="sapDtResourcePath" value="SalesOrders"></sap.ui.core:CustomData>
+                                        </customData>
+                                    </Input>
+                                    <Label text="Sales Organization Name"></Label>
+                                    <Input value="{SalesOrganizationName}" width="100%">
+                                        <customData>
+                                            <sap.ui.core:CustomData key="sapDtResourcePath" value="SalesOrders"></sap.ui.core:CustomData>
+                                        </customData>
+                                    </Input>
+                                </sap.ui.layout.form:content>
+                            </sap.ui.layout.form:SimpleForm>
+                        </content>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </content>
+        <footer>
+            <Bar></Bar>
+        </footer>
+    </Page>
+</sap.ui.core.mvc:View>
